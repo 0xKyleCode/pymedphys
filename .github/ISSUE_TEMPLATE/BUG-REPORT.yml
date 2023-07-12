@@ -1,12 +1,12 @@
 name: Bug Report
-descripton: File a bug report
+description: File a bug report
 title: "[BUG] "
 labels: ["bug", "triage"]
 assignees: 
   - 0xKyleCode
 body:
   - type: markdown
-    attribues:
+    attributes:
       value: |
         **Please fill out the following information to help us resolve your issue.**
   - type: input
@@ -33,7 +33,7 @@ body:
       placeholder: A clear and concise description of what the bug is.
     validations:
       required: true
-  -type: dropdown
+  - type: dropdown
     id: severity
     attributes:
       label: Severity
@@ -45,7 +45,7 @@ body:
     validations:
       required: true
 
-  -type: textarea
+  - type: textarea
     id: steps
     attributes:
       label: Steps to Reproduce

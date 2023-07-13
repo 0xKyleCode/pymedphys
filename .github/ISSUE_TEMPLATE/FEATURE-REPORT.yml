@@ -1,0 +1,48 @@
+name: Feature Request
+description: File a feature report
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees: 
+  - 0xKyleCode
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please fill out the following information describing your feature.** Note: If you can code, please consider making a pull request instead.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Information
+      description: How can we contact you?
+      placeholder: Discord, Email, etc.
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the feature you are requesting.
+      placeholder: A clear and concise description of what the feature is and accomplishes.
+    validations:
+      required: true
+  - type: dropdown
+    id: importance
+    attributes:
+      label: Importance
+      description: How important is this feature?
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Relevant Information
+      description: Please provide any relevant information pertaining to this feature
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'

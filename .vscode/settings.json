@@ -1,5 +1,15 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/github-issue-config.json": "file:///u%3A/Documents/Code/pymedphys/.github/ISSUE_TEMPLATE/config.yml"
-    }
+    },
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[json]": {
+        "editor.formatOnSave": true
+    },
+    "python.formatting.provider": "none",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
 }

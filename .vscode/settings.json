@@ -14,5 +14,8 @@
         "editor.formatOnSave": true
     },
     "python.formatting.provider": "none",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "files.exclude": {
+        "**/.git": false
+    }
 }

@@ -2,7 +2,7 @@ name: Feature Request
 description: File a feature report
 title: "[FEATURE] "
 labels: ["enhancement", "triage"]
-assignees: 
+assignees:
   - 0xKyleCode
 body:
   - type: markdown

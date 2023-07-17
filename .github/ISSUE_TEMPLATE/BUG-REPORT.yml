@@ -2,7 +2,7 @@ name: Bug Report
 description: File a bug report
 title: "[BUG] "
 labels: ["bug", "triage"]
-assignees: 
+assignees:
   - 0xKyleCode
 body:
   - type: markdown
@@ -55,7 +55,7 @@ body:
         2. Click on '....'
         3. Scroll down to '....'
         4. See error
-  
+
   - type: textarea
     id: logs
     attributes:

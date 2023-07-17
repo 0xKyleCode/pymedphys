@@ -12,6 +12,7 @@ repos:
       - id: name-tests-test
       - id: no-commit-to-branch
       - id: debug-statements
+        args: [--branch, main]
 
   - repo: https://github.com/psf/black
     rev: 23.7.0

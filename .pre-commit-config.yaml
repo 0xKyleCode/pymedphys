@@ -11,8 +11,8 @@ repos:
       - id: end-of-file-fixer
       - id: name-tests-test
       - id: no-commit-to-branch
-      - id: debug-statements
         args: [--branch, main]
+      - id: debug-statements
 
   - repo: https://github.com/psf/black
     rev: 23.7.0

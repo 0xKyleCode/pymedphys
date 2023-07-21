@@ -1,0 +1,1241 @@
+{
+    "objects": {
+        "tests": [
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Head VRT",
+                        "display_name": "CBCT Head VRT",
+                        "slug": "REG_CBCT_AUTO_VRT",
+                        "description": "None (phys month ss cell F251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "Head VRT \\u0394",
+                        "display_name": "Head VRT \\u0394",
+                        "slug": "REG_CBCT_AUTO_VRT_DELTA",
+                        "description": "None (phys month ss cell G251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nCBCT_REG_AUTO_VRT_DELTA = CBCT_REG_AUTO_VRT - vic_ref.REG_VRT_REF",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Head LNG",
+                        "display_name": "CBCT Head LNG",
+                        "slug": "REG_CBCT_AUTO_LNG",
+                        "description": "None (phys month ss cell H251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "Head LNG \\u0394",
+                        "display_name": "Head LNG \\u0394",
+                        "slug": "REG_CBCT_AUTO_LNG_DELTA",
+                        "description": "None (phys month ss cell I251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nCBCT_REG_AUTO_LNG_DELTA = CBCT_REG_AUTO_LNG - vic_ref.REG_LNG_REF",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Head LAT",
+                        "display_name": "CBCT Head LAT",
+                        "slug": "REG_CBCT_AUTO_LAT",
+                        "description": "None (phys month ss cell J251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "Head LAT \\u0394",
+                        "display_name": "Head LAT \\u0394",
+                        "slug": "REG_CBCT_AUTO_LAT_DELTA",
+                        "description": "None (phys month ss cell K251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nCBCT_REG_AUTO_LAT_DELTA = CBCT_REG_AUTO_LAT - vic_ref.REG_LAT_REF",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Registration Max \\u0394",
+                        "display_name": "CBCT Registration Max \\u0394",
+                        "slug": "REG_CBCT_AUTO_MAX_DELTA",
+                        "description": "None (phys month ss cell M251)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_CBCT_AUTO_MAX_DELTA=numpy.max(numpy.abs([REG_CBCT_AUTO_VRT_DELTA, REG_CBCT_AUTO_LNG_DELTA, REG_CBCT_AUTO_LAT_DELTA]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT 5cm Offset VRT",
+                        "display_name": "CBCT 5cm Offset VRT",
+                        "slug": "REG_CBCT_OFFSET_VRT",
+                        "description": "None (phys month ss cell F255)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT 5cm Offset LNG",
+                        "display_name": "CBCT 5cm Offset LNG",
+                        "slug": "REG_CBCT_OFFSET_LNG",
+                        "description": "None (phys month ss cell G255)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Thorax LAT",
+                        "display_name": "CBCT Thorax LAT",
+                        "slug": "REG_CBCT_OFFSET_LAT",
+                        "description": "None (phys month ss cell H255)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "CBCT Reg 5cm Offset Max \\u0394",
+                        "display_name": "CBCT Reg 5cm Offset Max \\u0394",
+                        "slug": "REG_CBCT_OFFSET_MAX_DELTA",
+                        "description": "None (phys month ss cell J255)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_CBCT_OFFSET_MAX_DELTA=numpy.max(numpy.abs([REG_CBCT_OFFSET_LNG, REG_CBCT_OFFSET_VRT, REG_CBCT_OFFSET_LAT]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Manual VRT",
+                        "display_name": "KV-Pair Manual VRT",
+                        "slug": "REG_KVPAIR_VRT",
+                        "description": "None (phys month ss cell F259)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Manual LNG",
+                        "display_name": "KV-Pair Manual LNG",
+                        "slug": "REG_KVPAIR_LNG",
+                        "description": "None (phys month ss cell G259)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Manual LAT",
+                        "display_name": "KV-Pair Manual LAT",
+                        "slug": "REG_KVPAIR_LAT",
+                        "description": "None (phys month ss cell H259)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Manual Max \\u0394",
+                        "display_name": "KV-Pair Manual Max \\u0394",
+                        "slug": "REG_KVPAIR_MAX_DELTA",
+                        "description": "None (phys month ss cell J259)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_KVPAIR_MAX_DELTA=numpy.max(numpy.abs([REG_KVPAIR_LNG, REG_KVPAIR_VRT, REG_KVPAIR_LAT]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Marker VRT",
+                        "display_name": "KV-Pair Marker VRT",
+                        "slug": "REG_KVMARK_VRT",
+                        "description": "None (phys month ss cell F263)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Marker LNG",
+                        "display_name": "KV-Pair Marker LNG",
+                        "slug": "REG_KVMARK_LNG",
+                        "description": "None (phys month ss cell G263)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Marker LAT",
+                        "display_name": "KV-Pair Marker LAT",
+                        "slug": "REG_KVMARK_LAT",
+                        "description": "None (phys month ss cell H263)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "KV-Pair Marker Max \\u0394",
+                        "display_name": "KV-Pair Marker Max \\u0394",
+                        "slug": "REG_KVMARK_MAX_DELTA",
+                        "description": "None (phys month ss cell J263)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_KVMARK_MAX_DELTA=numpy.max(numpy.abs([REG_KVMARK_LNG, REG_KVMARK_VRT, REG_KVMARK_LAT]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV GA90 VRT",
+                        "display_name": "MV GA90 VRT",
+                        "slug": "REG_MV90_VRT",
+                        "description": "None (phys month ss cell F267)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV GA90 LNG",
+                        "display_name": "MV GA90 LNG",
+                        "slug": "REG_MV90_LNG",
+                        "description": "None (phys month ss cell G267)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV Registration GA90 Max \\u0394",
+                        "display_name": "MV Registration GA90 Max \\u0394",
+                        "slug": "REG_MV90_MAX",
+                        "description": "None (phys month ss cell J267)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_MV90_MAX=numpy.max(numpy.abs([REG_MV90_VRT, , REG_MV90_LNG]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV GA0 LNG",
+                        "display_name": "MV GA0 LNG",
+                        "slug": "REG_MV0_LNG",
+                        "description": "None (phys month ss cell G271)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_numeric"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV GA0 LAT",
+                        "display_name": "MV GA0 LAT",
+                        "slug": "REG_MV0_LAT",
+                        "description": "None (phys month ss cell H271)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": false,
+                        "type": "simple",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "MV Registration GA0 Max \\u0394",
+                        "display_name": "MV Registration GA0 Max \\u0394",
+                        "slug": "REG_MV0_MAX",
+                        "description": "None (phys month ss cell J271)",
+                        "procedure": null,
+                        "category": [
+                            "Imaging"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "from vic_calib import *\\nimport vic_ref\\nREG_MV0_MAX=numpy.max(numpy.abs([REG_MV0_LNG, , REG_MV0_LAT]))",
+                        "formatting": "%0.2f"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Imaging",
+                            "slug": "imaging",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlists": [],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.0",
+        "datetime": "2021-07-21 19:30:15.657460+00:00",
+        "description": "",
+        "contact": "clay.lindsay@bccancer.bc.ca",
+        "name": "sample_calc",
+        "id": "6b04d6eb-d911-4eb3-acd0-f7a7082082d7"
+    }
+}

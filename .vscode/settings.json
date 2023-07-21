@@ -18,5 +18,8 @@
     "files.exclude": {
         "**/.git": false
     },
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.extraPaths": [
+        "./src/QAtrack/src"
+    ]
 }

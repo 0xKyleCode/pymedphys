@@ -1,0 +1,53 @@
+from excel.utils.excel_dataclass import ExcelData
+
+CONSTANTS_PHOTON_FC_SPRUCE: list = [
+    # Spruce
+    ExcelData(
+        "Spruce Photon Solid Water Factor 6X",
+        "vispruce_tb5_photon_6x_fc",
+        "Spruce Photon Solid Water Factor 6X",
+        False,
+        "Data",
+        "U36",
+        "constant",
+        "%0.2f",
+        "",
+        1,
+    ),
+    ExcelData(
+        "Spruce Photon Solid Water Factor 10X",
+        "vispruce_tb5_photon_10x_fc",
+        "Spruce Photon Solid Water Factor 10X",
+        False,
+        "Data",
+        "V36",
+        "constant",
+        "%0.2f",
+        "",
+        1,
+    ),
+    ExcelData(
+        "Spruce Photon Solid Water Factor 15X",
+        "vispruce_tb5_photon_15x_fc",
+        "Spruce Photon Solid Water Factor 15X",
+        False,
+        "Data",
+        "W36",
+        "constant",
+        "%0.2f",
+        "",
+        1,
+    ),
+    ExcelData(
+        "Spruce Photon Solid Water Factor 10XFFF",
+        "vispruce_tb5_photon_10xfff_fc",
+        "Spruce Photon Solid Water Factor 10XFFF",
+        False,
+        "Data",
+        "X36",
+        "constant",
+        "%0.2f",
+        "",
+        1,
+    ),
+]

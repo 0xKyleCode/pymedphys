@@ -12,5 +12,6 @@ MISC_ELEC = [
         "UNIDOSE S1,UNIDOSE E2,UNIDOSE E3,UNIDOSE E4,UNIDOSE E5",
         "",
         1,
+        "",
     ),
 ]

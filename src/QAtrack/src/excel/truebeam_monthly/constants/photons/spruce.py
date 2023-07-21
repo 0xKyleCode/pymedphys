@@ -13,6 +13,7 @@ CONSTANTS_PHOTON_FC_SPRUCE: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Spruce Photon Solid Water Factor 10X",
@@ -25,6 +26,7 @@ CONSTANTS_PHOTON_FC_SPRUCE: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Spruce Photon Solid Water Factor 15X",
@@ -37,6 +39,7 @@ CONSTANTS_PHOTON_FC_SPRUCE: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Spruce Photon Solid Water Factor 10XFFF",
@@ -49,5 +52,6 @@ CONSTANTS_PHOTON_FC_SPRUCE: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
 ]

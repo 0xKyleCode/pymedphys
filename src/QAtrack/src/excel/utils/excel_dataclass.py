@@ -14,6 +14,7 @@ class ExcelData:
     format: str
     calc: str
     repeats: int
+    value: Union[float, str, int, bool]
 
     def __post_init__(self):
         valid_sheets = {"Main", "Data", "Info"}

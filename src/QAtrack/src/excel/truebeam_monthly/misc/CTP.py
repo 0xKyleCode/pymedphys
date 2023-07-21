@@ -12,6 +12,7 @@ MISC_CTP = [
         "%0.3f",
         "ctp_photon=(760/p_corr_photon)*(t_probe_photon+273.15)/295.15",
         1,
+        "",
     ),
     ExcelData(
         "CTP (Electron)",
@@ -24,5 +25,6 @@ MISC_CTP = [
         "%0.3f",
         "ctp_electron=(760/p_corr_electron)*(t_probe_electron+273.15)/295.15",
         1,
+        "",
     ),
 ]

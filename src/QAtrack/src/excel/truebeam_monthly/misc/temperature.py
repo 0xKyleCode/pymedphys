@@ -12,6 +12,7 @@ MISC_TEMPERATURE = [
         "%0.1f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Temperature (Electron)",
@@ -24,5 +25,6 @@ MISC_TEMPERATURE = [
         "%0.1f",
         "",
         1,
+        "",
     ),
 ]

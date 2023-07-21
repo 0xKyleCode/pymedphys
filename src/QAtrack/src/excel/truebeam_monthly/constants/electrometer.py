@@ -12,6 +12,7 @@ CONSTANTS_ELEC = [
         "%0.3f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "UNIDOSE E2",
@@ -24,6 +25,7 @@ CONSTANTS_ELEC = [
         "%0.3f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "UNIDOSE E3",
@@ -36,6 +38,7 @@ CONSTANTS_ELEC = [
         "%0.3f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "UNIDOSE E4",
@@ -48,6 +51,7 @@ CONSTANTS_ELEC = [
         "%0.3f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "UNIDOSE E5",
@@ -60,5 +64,6 @@ CONSTANTS_ELEC = [
         "%0.3f",
         "",
         1,
+        "",
     ),
 ]

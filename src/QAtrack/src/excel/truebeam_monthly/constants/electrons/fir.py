@@ -13,6 +13,7 @@ CONSTANTS_ELECTRON_FC_FIR: list = [
         "%0.1f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Fir Electron Solid Water Factor 9E",
@@ -25,6 +26,7 @@ CONSTANTS_ELECTRON_FC_FIR: list = [
         "%0.1f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Fir Electron Solid Water Factor 12E",
@@ -37,6 +39,7 @@ CONSTANTS_ELECTRON_FC_FIR: list = [
         "%0.1f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Fir Electron Solid Water Factor 16E",
@@ -49,6 +52,7 @@ CONSTANTS_ELECTRON_FC_FIR: list = [
         "%0.1f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Fir Electron Solid Water Factor 20E",
@@ -61,5 +65,6 @@ CONSTANTS_ELECTRON_FC_FIR: list = [
         "%0.1f",
         "",
         1,
+        "",
     ),
 ]

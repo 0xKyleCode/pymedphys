@@ -75,4 +75,4 @@ class BCCAMonthlyTruebeamQA(BCCABaseQA):
         Returns:
             dataframe: The dataframe.
         """
-        BCCAReadTruebeamMonthlyQAData().read_constants(file_name)
+        return BCCAReadTruebeamMonthlyQAData().read_all(file_name)

@@ -13,6 +13,7 @@ CONSTANTS_PHOTON_FC_OAK: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Oak Photon Solid Water Factor 10X",
@@ -25,6 +26,7 @@ CONSTANTS_PHOTON_FC_OAK: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Oak Photon Solid Water Factor 15X",
@@ -37,6 +39,7 @@ CONSTANTS_PHOTON_FC_OAK: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
     ExcelData(
         "Oak Photon Solid Water Factor 10XFFF",
@@ -49,5 +52,6 @@ CONSTANTS_PHOTON_FC_OAK: list = [
         "%0.2f",
         "",
         1,
+        "",
     ),
 ]

@@ -1,0 +1,57 @@
+{
+    "objects": {
+        "tests": [
+            {
+                "key": [
+                    "sample_pulldown"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "sample_pulldown",
+                        "display_name": "display name",
+                        "slug": "sample_pulldown",
+                        "description": "",
+                        "procedure": null,
+                        "category": [
+                            "Template"
+                        ],
+                        "chart_visibility": false,
+                        "type": "multchoice",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": "CHOICE1,CHOICE2,CHOICE3",
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": ""
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlists": [],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.0",
+        "datetime": "2021-07-21 19:29:50.711882+00:00",
+        "description": "",
+        "contact": "clay.lindsay@bccancer.bc.ca",
+        "name": "sample_pulldown",
+        "id": "a174c955-a905-4edd-871a-7e8f4494fc0b"
+    }
+}

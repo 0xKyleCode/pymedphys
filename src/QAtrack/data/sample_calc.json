@@ -1,0 +1,57 @@
+{
+    "objects": {
+        "tests": [
+            {
+                "key": [
+                    "sample_calc"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "sample_calc",
+                        "display_name": "display name samp calc",
+                        "slug": "sample_calc",
+                        "description": "",
+                        "procedure": null,
+                        "category": [
+                            "Template"
+                        ],
+                        "chart_visibility": true,
+                        "type": "composite",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": null,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "sample_calc = 1.0 * 2.09\\n",
+                        "formatting": ""
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlists": [],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.0",
+        "datetime": "2021-07-21 19:30:15.657460+00:00",
+        "description": "",
+        "contact": "clay.lindsay@bccancer.bc.ca",
+        "name": "sample_calc",
+        "id": "6b04d6eb-d911-4eb3-acd0-f7a7082082d7"
+    }
+}

@@ -2,8 +2,7 @@ import os
 import re
 import datetime
 from constants.machines import BCCALinac
-from machines.base import BCCABaseQA
-from excel.truebeam_monthly.read_data import BCCAReadTruebeamMonthlyQAData
+from machines.machine_template import BCCABaseQA
 
 PHYS_MONTHLY_FILE_RE = r"VI(\D+)_TB\d_(\D\D\D)_(\d\d\d\d)(.*)\.xlsm"
 

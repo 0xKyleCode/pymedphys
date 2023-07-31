@@ -1,0 +1,217 @@
+{
+    "objects": {
+        "tests": [],
+        "testlists": [
+            {
+                "key": [
+                    "template-test-list"
+                ],
+                "object": {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": "Template Test List",
+                        "slug": "template-test-list",
+                        "description": "test list holding template tests",
+                        "javascript": "",
+                        "warning_message": "Do not treat"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "sample_calc",
+                            "display_name": "display name samp calc",
+                            "slug": "sample_calc",
+                            "description": "",
+                            "procedure": null,
+                            "category": [
+                                "Template"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "sample_calc = 1.0 * 2.09\\n",
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "sample_numeric",
+                            "display_name": "display name",
+                            "slug": "sample_numeric",
+                            "description": "",
+                            "procedure": null,
+                            "category": [
+                                "Template"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "",
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "sample_constant",
+                            "display_name": "display name",
+                            "slug": "sample_constant",
+                            "description": "",
+                            "procedure": null,
+                            "category": [
+                                "Template"
+                            ],
+                            "chart_visibility": false,
+                            "type": "constant",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": 1.05,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "",
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "sample_pulldown",
+                            "display_name": "display name",
+                            "slug": "sample_pulldown",
+                            "description": "",
+                            "procedure": null,
+                            "category": [
+                                "Template"
+                            ],
+                            "chart_visibility": false,
+                            "type": "multchoice",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": "CHOICE1,CHOICE2,CHOICE3",
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "",
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "template-test-list"
+                            ],
+                            "test": [
+                                "sample_calc"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "template-test-list"
+                            ],
+                            "test": [
+                                "sample_numeric"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "template-test-list"
+                            ],
+                            "test": [
+                                "sample_constant"
+                            ],
+                            "order": 2
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "template-test-list"
+                            ],
+                            "test": [
+                                "sample_pulldown"
+                            ],
+                            "order": 3
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.0",
+        "datetime": "2021-07-21 21:26:03.427651+00:00",
+        "description": "",
+        "contact": "clay.lindsay@bccancer.bc.ca",
+        "name": "testlist_template",
+        "id": "d84a61d1-dcb7-48cb-a8e4-71c66dba8559"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "objects": {
+        "tests": [
+            {
+                "key": [
+                    "sample_constant"
+                ],
+                "object": {
+                    "model": "qa.test",
+                    "fields": {
+                        "name": "sample_constant",
+                        "display_name": "display name",
+                        "slug": "sample_constant",
+                        "description": "",
+                        "procedure": null,
+                        "category": [
+                            "Template"
+                        ],
+                        "chart_visibility": false,
+                        "type": "constant",
+                        "flag_when": null,
+                        "hidden": false,
+                        "skip_without_comment": false,
+                        "require_comment": false,
+                        "display_image": false,
+                        "choices": null,
+                        "constant_value": 1.05,
+                        "wrap_low": null,
+                        "wrap_high": null,
+                        "calculation_procedure": "",
+                        "formatting": ""
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Template",
+                            "slug": "template",
+                            "description": "Template tests used for bulk test importing"
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlists": [],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.0",
+        "datetime": "2021-07-21 19:29:58.898091+00:00",
+        "description": "",
+        "contact": "clay.lindsay@bccancer.bc.ca",
+        "name": "sample_constant",
+        "id": "055f538c-c93b-49a8-a553-c5d69cf1626c"
+    }
+}

@@ -58,11 +58,15 @@ class BCCATestpack:
         for row in sheet1.iter_rows():
             for cell in row:
                 # Check if cell is not empty and contains a string
-                if cell.value and isinstance(cell.value, str):
+                if (
+                    cell.value
+                    and isinstance(cell.value, str)
+                    and cell.value.startswith("#!")
+                ):
                     # Get corresponding value from same cell in sheet2
                     value = sheet2[cell.coordinate].value
                     # Store name and value in the dictionary
-                    data[cell.coordinate]["name"] = cell.value
+                    data[cell.coordinate]["name"] = cell.value[2:]
                     data[cell.coordinate]["value"] = value
 
         # Now find matching short_name rows in Sheet3 and gather the row data
@@ -368,7 +372,7 @@ class BCCATestpack:
                 self.read_excel_sheet("Data", file_name),
             ]
         )
-        print(df)
+
         calculations_tpk = self.make_calculation_tpk(df)
         constants_tpk = self.make_constant_tpk(df)
         numerics_tpk = self.make_numeric_tpk(df)

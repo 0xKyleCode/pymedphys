@@ -1,0 +1,935 @@
+{
+    "objects": {
+        "tests": [],
+        "testlists": [
+            {
+                "key": [
+                    "ctp-photon"
+                ],
+                "object": {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": "CTP Photon",
+                        "slug": "ctp-photon",
+                        "description": "CTP for Monthly Photon QA",
+                        "javascript": "",
+                        "warning_message": "Out of tolerance"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "ctp_photon",
+                            "display_name": "CTP (Photon)",
+                            "slug": "ctp_photon",
+                            "description": "Corrected Temperature Pressure (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "from qatrack.custom.ctp import calc_ctp_photon\\nctp_photon = calc_ctp_photon(p_corr_photon, t_probe_photon)",
+                            "formatting": "%0.3f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "p_corr_photon",
+                            "display_name": "Pressure (Photon)",
+                            "slug": "p_corr_photon",
+                            "description": "Corrected Pressure (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.1f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "t_probe_photon",
+                            "display_name": "Temperature (Photon)",
+                            "slug": "t_probe_photon",
+                            "description": "Probe Temperature (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.1f"
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "p_corr_photon"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "t_probe_photon"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "ctp_photon"
+                            ],
+                            "order": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "nd-photon"
+                ],
+                "object": {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": "ND Photon",
+                        "slug": "nd-photon",
+                        "description": "ND for Monthly Photon QA",
+                        "javascript": "",
+                        "warning_message": "Out of tolerance"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "nd_photon",
+                            "display_name": "ND Ratio (Photon)",
+                            "slug": "nd_photon",
+                            "description": "ND Ratio (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "from qatrack.custom.nd_dose import get_photon_probe\\nnd_photon = get_photon_probe(ptw_probe_id)",
+                            "formatting": "%0.3f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "ptw_probe_id",
+                            "display_name": "PTW Probe ID",
+                            "slug": "ptw_probe_id",
+                            "description": "PTW Probe ID",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "multchoice",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": "PTW2,PTW3,PTW4,PTW5,PTW6,PTW7",
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "nd-photon"
+                            ],
+                            "test": [
+                                "ptw_probe_id"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "nd-photon"
+                            ],
+                            "test": [
+                                "nd_photon"
+                            ],
+                            "order": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "monthly-oc-6x"
+                ],
+                "object": {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": "Monthly Output Constancy - 6X",
+                        "slug": "monthly-oc-6x",
+                        "description": "Monthly Output Constancy for 6X",
+                        "javascript": "",
+                        "warning_message": "Out of tolerance"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_1",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_1",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_2",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_2",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_3",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_3",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_1"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_2"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_3"
+                            ],
+                            "order": 2
+                        }
+                    }
+                ]
+            },
+            {
+                "key": [
+                    "oc-test"
+                ],
+                "object": {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": "oc-test",
+                        "slug": "oc-test",
+                        "description": "",
+                        "javascript": "",
+                        "warning_message": "Out of tolerance"
+                    }
+                },
+                "dependencies": [
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.category",
+                        "fields": {
+                            "name": "Dosimetry",
+                            "slug": "dosimetry",
+                            "description": "Dosimetry"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "ctp_photon",
+                            "display_name": "CTP (Photon)",
+                            "slug": "ctp_photon",
+                            "description": "Corrected Temperature Pressure (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "from qatrack.custom.ctp import calc_ctp_photon\\nctp_photon = calc_ctp_photon(p_corr_photon, t_probe_photon)",
+                            "formatting": "%0.3f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "nd_photon",
+                            "display_name": "ND Ratio (Photon)",
+                            "slug": "nd_photon",
+                            "description": "ND Ratio (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "from qatrack.custom.nd_dose import get_photon_probe\\nnd_photon = get_photon_probe(ptw_probe_id)",
+                            "formatting": "%0.3f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_DOSE",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_DOSE",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "composite",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": "",
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "p_corr_photon",
+                            "display_name": "Pressure (Photon)",
+                            "slug": "p_corr_photon",
+                            "description": "Corrected Pressure (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.1f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "t_probe_photon",
+                            "display_name": "Temperature (Photon)",
+                            "slug": "t_probe_photon",
+                            "description": "Probe Temperature (photon)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.1f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_1",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_1",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_2",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_2",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "OC_6X_10x10_3",
+                            "display_name": "6X Output Constancy Dose (100 MU)",
+                            "slug": "OC_6X_10x10_3",
+                            "description": "6X Output Constancy Dose (100 MU)",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "simple",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": null,
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": "%0.2f"
+                        }
+                    },
+                    {
+                        "model": "qa.test",
+                        "fields": {
+                            "name": "ptw_probe_id",
+                            "display_name": "PTW Probe ID",
+                            "slug": "ptw_probe_id",
+                            "description": "PTW Probe ID",
+                            "procedure": null,
+                            "category": [
+                                "Dosimetry"
+                            ],
+                            "chart_visibility": true,
+                            "type": "multchoice",
+                            "flag_when": null,
+                            "hidden": false,
+                            "skip_without_comment": false,
+                            "require_comment": false,
+                            "display_image": false,
+                            "choices": "PTW2,PTW3,PTW4,PTW5,PTW6,PTW7",
+                            "constant_value": null,
+                            "wrap_low": null,
+                            "wrap_high": null,
+                            "calculation_procedure": null,
+                            "formatting": ""
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "p_corr_photon"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "nd-photon"
+                            ],
+                            "test": [
+                                "ptw_probe_id"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_1"
+                            ],
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "t_probe_photon"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "nd-photon"
+                            ],
+                            "test": [
+                                "nd_photon"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_2"
+                            ],
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "ctp-photon"
+                            ],
+                            "test": [
+                                "ctp_photon"
+                            ],
+                            "order": 2
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "monthly-oc-6x"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_3"
+                            ],
+                            "order": 2
+                        }
+                    },
+                    {
+                        "model": "qa.testlistmembership",
+                        "fields": {
+                            "test_list": [
+                                "oc-test"
+                            ],
+                            "test": [
+                                "OC_6X_10x10_DOSE"
+                            ],
+                            "order": 3
+                        }
+                    },
+                    {
+                        "model": "qa.testlist",
+                        "fields": {
+                            "name": "CTP Photon",
+                            "slug": "ctp-photon",
+                            "description": "CTP for Monthly Photon QA",
+                            "javascript": "",
+                            "warning_message": "Out of tolerance"
+                        }
+                    },
+                    {
+                        "model": "qa.testlist",
+                        "fields": {
+                            "name": "ND Photon",
+                            "slug": "nd-photon",
+                            "description": "ND for Monthly Photon QA",
+                            "javascript": "",
+                            "warning_message": "Out of tolerance"
+                        }
+                    },
+                    {
+                        "model": "qa.testlist",
+                        "fields": {
+                            "name": "Monthly Output Constancy - 6X",
+                            "slug": "monthly-oc-6x",
+                            "description": "Monthly Output Constancy for 6X",
+                            "javascript": "",
+                            "warning_message": "Out of tolerance"
+                        }
+                    },
+                    {
+                        "model": "qa.sublist",
+                        "fields": {
+                            "parent": [
+                                "oc-test"
+                            ],
+                            "child": [
+                                "ctp-photon"
+                            ],
+                            "outline": false,
+                            "order": 0
+                        }
+                    },
+                    {
+                        "model": "qa.sublist",
+                        "fields": {
+                            "parent": [
+                                "oc-test"
+                            ],
+                            "child": [
+                                "nd-photon"
+                            ],
+                            "outline": false,
+                            "order": 1
+                        }
+                    },
+                    {
+                        "model": "qa.sublist",
+                        "fields": {
+                            "parent": [
+                                "oc-test"
+                            ],
+                            "child": [
+                                "monthly-oc-6x"
+                            ],
+                            "outline": false,
+                            "order": 2
+                        }
+                    }
+                ]
+            }
+        ],
+        "testlistcycles": []
+    },
+    "meta": {
+        "version": "3.1.1.3",
+        "datetime": "2023-08-10 21:15:34.991127+00:00",
+        "description": "",
+        "contact": "kyle.bromma1@bccancer.bc.ca",
+        "name": "oc-test-all",
+        "id": "498bcda8-212a-4c20-8796-2617112711d3"
+    }
+}

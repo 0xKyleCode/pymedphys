@@ -7,6 +7,8 @@ from openpyxl import load_workbook
 from collections import defaultdict
 from datetime import datetime, timezone
 
+from constants.test_list_definitions import ALL_TEST_LISTS
+
 TPK_CALC_TEMPLATE = os.path.join(
     os.getcwd(), "..", "data", "constant_tpk", "sample_calc.tpk"
 )
@@ -134,6 +136,10 @@ class BCCATestpack:
         testpack_dict["objects"]["tests"] = [
             json.dumps(s) for s in testpack_dict["objects"]["tests"]
         ]
+
+        testpack_dict["objects"]["testlists"] = [
+            json.dumps(s) for s in testpack_dict["objects"]["testlists"]
+        ]
         with open(outfile, "w") as f:
             json.dump(testpack_dict, f, indent=4)
 
@@ -157,6 +163,11 @@ class BCCATestpack:
             # Set key to short name
             current_test["key"][0] = row["short"]
 
+            # Based off short name, we're gonna read the in contents of the python file and use that as calculation prodecure
+            # Read the content of the Python file
+            with open(rf"qa_formulas\{row['short']}.py") as python_file:
+                python_code = python_file.read()
+
             # Set object params
             temp_field = {
                 "name": row["short"],
@@ -176,7 +187,7 @@ class BCCATestpack:
                 "constant_value": None,
                 "wrap_low": None,
                 "wrap_high": None,
-                "calculation_procedure": row["calc"],
+                "calculation_procedure": python_code,
                 "formatting": row["format"],
             }
             current_test["object"]["fields"] = temp_field
@@ -355,6 +366,136 @@ class BCCATestpack:
 
         return tests
 
+    def process_test(
+        self,
+        tests,
+        test,
+        test_list_name,
+        final_test_names,
+        dependencies,
+        final_tests,
+        memberships,
+    ):
+        filtered_list = next(
+            (d for d in tests if d.get("key")[0] == test["name"]), None
+        )
+
+        if not filtered_list:
+            return
+
+        dependencies.append(filtered_list["dependencies"][1])
+        final_tests.append(filtered_list["object"])
+        memberships.append(
+            {
+                "model": "qa.testlistmembership",
+                "fields": {
+                    "test_list": [test_list_name],
+                    "test": [test["name"]],
+                    "order": test["order"],
+                },
+            }
+        )
+        final_test_names.add(test["name"])
+
+    def make_test_list(self, tests: list) -> list[dict]:
+        """
+        Makes a QATrack+ test list.
+
+        Args:
+            tests (list): List of all tests
+
+        Returns:
+            list: list of all testlists
+        """
+        tests_lists = []
+
+        for test_list in ALL_TEST_LISTS:
+            final_tests = []
+            dependencies = []
+            memberships = []
+            testlist_extra = []
+            sublist = []
+            final_test_names = (
+                set()
+            )  # To check the existence of test names without looping through final_tests
+            # Check tests array
+            for test in test_list["tests"]:
+                self.process_test(
+                    tests,
+                    test,
+                    test_list["slug"],
+                    final_test_names,
+                    dependencies,
+                    final_tests,
+                    memberships,
+                )
+
+            # Check test lists array
+            for t_list in test_list["test_lists"]:
+                # Append for the testlist
+                testlist_extra.append(
+                    {
+                        "model": "qa.testlist",
+                        "fields": {
+                            "name": t_list["list"]["long name"],
+                            "slug": t_list["list"]["slug"],
+                            "description": t_list["list"]["description"],
+                            "javascript": "",
+                            "warning_message": "Out of tolerance",
+                        },
+                    }
+                )
+
+                # append for the sublist
+                sublist.append(
+                    {
+                        "model": "qa.sublist",
+                        "fields": {
+                            "parent": [test_list["slug"]],
+                            "child": [t_list["list"]["slug"]],
+                            "outline": True,
+                            "order": t_list["order"],
+                        },
+                    }
+                )
+
+                # Check sublists for tests that haven't not been added yet and add them
+                for test in t_list["list"]["tests"]:
+                    if test["name"] not in final_test_names:
+                        self.process_test(
+                            tests,
+                            test,
+                            t_list["list"]["slug"],
+                            final_test_names,
+                            dependencies,
+                            final_tests,
+                            memberships,
+                        )
+
+            # Combine to make correct format
+            tests_lists.append(
+                {
+                    "key": [test_list["slug"]],
+                    "object": {
+                        "model": "qa.testlist",
+                        "fields": {
+                            "name": test_list["long name"],
+                            "slug": test_list["slug"],
+                            "description": test_list["description"],
+                            "javascript": "",
+                            "warning_message": "Out of tolerance",
+                        },
+                    },
+                    "dependencies": dependencies
+                    + final_tests
+                    + memberships
+                    + testlist_extra
+                    + sublist,
+                }
+            )
+
+        return tests_lists
+
     def make_test_tpk(self, file_name: str) -> dict:
         """
         Makes a QATrack+ test list.
@@ -382,7 +523,7 @@ class BCCATestpack:
 
         temp_tpk = self.load_tpk_template("calculation")
         temp_tpk["objects"]["tests"] = tests
-
+        temp_tpk["objects"]["testlists"] = self.make_test_list(tests)
         # Adjust Meta
         temp_tpk["meta"]["version"] = "3.1.1"
         temp_tpk["meta"]["id"] = str(uuid.uuid4())

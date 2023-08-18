@@ -10,19 +10,19 @@ from datetime import datetime, timezone
 from constants.test_list_definitions import ALL_TEST_LISTS
 
 TPK_CALC_TEMPLATE = os.path.join(
-    os.getcwd(), "..", "data", "constant_tpk", "sample_calc.tpk"
+    os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_calc.tpk"
 )
 
 TPK_CONSTANT_TEMPLATE = os.path.join(
-    os.getcwd(), "..", "data", "constant_tpk", "sample_constant.tpk"
+    os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_constant.tpk"
 )
 
 TPK_NUMERIC_TEMPLATE = os.path.join(
-    os.getcwd(), "..", "data", "constant_tpk", "sample_numeric.tpk"
+    os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_numeric.tpk"
 )
 
 TPK_PULLDOWN_TEMPLATE = os.path.join(
-    os.getcwd(), "..", "data", "constant_tpk", "sample_pulldown.tpk"
+    os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_pulldown.tpk"
 )
 
 TPK_DEPEN_TEMPLATE = {
@@ -165,7 +165,16 @@ class BCCATestpack:
 
             # Based off short name, we're gonna read the in contents of the python file and use that as calculation prodecure
             # Read the content of the Python file
-            with open(rf"qa_formulas\{row['short']}.py") as python_file:
+            with open(
+                os.path.join(
+                    os.getcwd(),
+                    "src",
+                    "QAtrack",
+                    "src",
+                    "qa_formulas",
+                    f"{row['short']}.py",
+                )
+            ) as python_file:
                 python_code = python_file.read()
 
             # Set object params
@@ -242,7 +251,7 @@ class BCCATestpack:
                 "constant_value": row["value"],
                 "wrap_low": None,
                 "wrap_high": None,
-                "calculation_procedure": row["calc"],
+                "calculation_procedure": "",
                 "formatting": row["format"],
             }
             current_test["object"]["fields"] = temp_field
@@ -296,7 +305,7 @@ class BCCATestpack:
                 "constant_value": None,
                 "wrap_low": None,
                 "wrap_high": None,
-                "calculation_procedure": row["calc"],
+                "calculation_procedure": "",
                 "formatting": row["format"],
             }
             current_test["object"]["fields"] = temp_field
@@ -350,7 +359,7 @@ class BCCATestpack:
                 "constant_value": None,
                 "wrap_low": None,
                 "wrap_high": None,
-                "calculation_procedure": row["calc"],
+                "calculation_procedure": "",
                 "formatting": "",
             }
             current_test["object"]["fields"] = temp_field

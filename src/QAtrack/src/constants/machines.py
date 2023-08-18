@@ -15,13 +15,61 @@ class BCCALinac:
     """
 
     MACHINES = {
-        "fir": {"name": "VIFIR_TB1", "model": "TrueBeam", "hd": False, "id": 1},
-        "arbutus": {"name": "VIARBUTUS_TB2", "model": "TrueBeam", "hd": False, "id": 2},
-        "birch": {"name": "VIBIRCH_TB3", "model": "TrueBeam", "hd": False, "id": 3},
-        "cedar": {"name": "VICEDAR_TB4", "model": "TrueBeam", "hd": False, "id": 4},
-        "spruce": {"name": "VISPRUCE_TB5", "model": "TrueBeam", "hd": False, "id": 5},
-        "oak": {"name": "VIOAK_TB6", "model": "TrueBeam", "hd": True, "id": 6},
+        "fir": {
+            "short_name": "fir",
+            "long_name": "VIFIR_TB1",
+            "model": "TrueBeam",
+            "hd": False,
+            "id": 1,
+        },
+        "arbutus": {
+            "short_name": "arbutus",
+            "long_name": "VIARBUTUS_TB2",
+            "model": "TrueBeam",
+            "hd": False,
+            "id": 2,
+        },
+        "birch": {
+            "short_name": "birch",
+            "long_name": "VIBIRCH_TB3",
+            "model": "TrueBeam",
+            "hd": False,
+            "id": 3,
+        },
+        "cedar": {
+            "short_name": "cedar",
+            "long_name": "VICEDAR_TB4",
+            "model": "TrueBeam",
+            "hd": False,
+            "id": 4,
+        },
+        "spruce": {
+            "short_name": "spruce",
+            "long_name": "VISPRUCE_TB5",
+            "model": "TrueBeam",
+            "hd": False,
+            "id": 5,
+        },
+        "oak": {
+            "short_name": "oak",
+            "long_name": "VIOAK_TB6",
+            "model": "TrueBeam",
+            "hd": True,
+            "id": 6,
+        },
     }
+
+    @classmethod
+    def get_machine_info(cls, machine: str) -> dict:
+        """
+            Gets a machine's info.
+
+        Args:
+            machine (str): The machine name.
+        Returns:
+            dict: The machine info.
+        """
+        return cls.MACHINES[machine]
 
     @classmethod
     def get_machine_name(cls, machine: str) -> str:

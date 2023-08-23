@@ -6,7 +6,7 @@ import copy
 from openpyxl import load_workbook
 from collections import defaultdict
 from datetime import datetime, timezone
-
+import copy
 from constants.test_list_definitions import ALL_TEST_LISTS
 
 TPK_CALC_TEMPLATE = os.path.join(
@@ -139,6 +139,10 @@ class BCCATestpack:
 
         testpack_dict["objects"]["testlists"] = [
             json.dumps(s) for s in testpack_dict["objects"]["testlists"]
+        ]
+
+        testpack_dict["objects"]["testlistcycles"] = [
+            json.dumps(s) for s in testpack_dict["objects"]["testlistcycles"]
         ]
         with open(outfile, "w") as f:
             json.dump(testpack_dict, f, indent=4)
@@ -384,6 +388,7 @@ class BCCATestpack:
         dependencies,
         final_tests,
         memberships,
+        order,
     ):
         filtered_list = next(
             (d for d in tests if d.get("key")[0] == test["name"]), None
@@ -400,13 +405,105 @@ class BCCATestpack:
                 "fields": {
                     "test_list": [test_list_name],
                     "test": [test["name"]],
-                    "order": test["order"],
+                    "order": order,
                 },
             }
         )
         final_test_names.add(test["name"])
 
-    def make_test_list(self, tests: list) -> list[dict]:
+    def process_testlist(
+        self,
+        name,
+        test_list,
+        final_test_names,
+        testlist_extra,
+        sublist,
+        dependencies,
+        final_tests,
+        memberships,
+        tests,
+    ):
+        for index, t_list in enumerate(test_list):
+            t_list_updated = self.transfer_test_list_to_test(t_list)
+            t_list_updated["name"]["tests"] = self.flatten_list(
+                t_list_updated["name"]["tests"]
+            )
+
+            testlist_extra.append(
+                {
+                    "model": "qa.testlist",
+                    "fields": {
+                        "name": t_list_updated["name"]["long name"],
+                        "slug": t_list_updated["name"]["slug"],
+                        "description": t_list_updated["name"]["description"],
+                        "javascript": "",
+                        "warning_message": "Out of tolerance",
+                    },
+                }
+            )
+
+            sublist.append(
+                {
+                    "model": "qa.sublist",
+                    "fields": {
+                        "parent": [name],
+                        "child": [t_list_updated["name"]["slug"]],
+                        "outline": True,
+                        "order": index,
+                    },
+                }
+            )
+            for test_index, test in enumerate(t_list_updated["name"]["tests"]):
+                if test["name"] not in final_test_names:
+                    self.process_test(
+                        tests,
+                        test,
+                        t_list_updated["name"]["slug"],
+                        final_test_names,
+                        dependencies,
+                        final_tests,
+                        memberships,
+                        test_index,
+                    )
+
+    def transfer_test_list_to_test(self, test_list: dict) -> list[dict]:
+        """
+        Condenses a test list into a list of tests.
+
+        Args:
+            test_list (dict): The test list.
+        Returns:
+            list[dict]: The list of tests.
+        """
+        new_test_list = copy.deepcopy(test_list)
+        for tests in new_test_list["name"]["test_lists"]:
+            # Recursively make sure all tests get added
+            updated_test_list = self.transfer_test_list_to_test(tests)
+            new_test_list["name"]["tests"].insert(
+                tests["order"], updated_test_list["name"]["tests"]
+            )
+
+        return new_test_list
+
+    def flatten_list(self, nested_list: list) -> list:
+        """
+        Flattens a nested list.
+
+        Args:
+            nested_list (list): List to be flatten
+
+        Returns:
+            list: Flattened list
+        """
+        return [
+            item
+            for sublist in nested_list
+            for item in (
+                self.flatten_list(sublist) if isinstance(sublist, list) else [sublist]
+            )
+        ]
+
+    def make_test_list(self, tests: list) -> (list[dict], list[dict]):
         """
         Makes a QATrack+ test list.
 
@@ -417,18 +514,18 @@ class BCCATestpack:
             list: list of all testlists
         """
         tests_lists = []
-
+        test_list_cycles = []
         for test_list in ALL_TEST_LISTS:
             final_tests = []
             dependencies = []
             memberships = []
             testlist_extra = []
             sublist = []
-            final_test_names = (
-                set()
-            )  # To check the existence of test names without looping through final_tests
+            cycle = []
+            final_test_names = set()
+
             # Check tests array
-            for test in test_list["tests"]:
+            for index, test in enumerate(test_list["tests"]):
                 self.process_test(
                     tests,
                     test,
@@ -437,73 +534,94 @@ class BCCATestpack:
                     dependencies,
                     final_tests,
                     memberships,
+                    index,
                 )
 
-            # Check test lists array
-            for t_list in test_list["test_lists"]:
-                # Append for the testlist
-                testlist_extra.append(
-                    {
-                        "model": "qa.testlist",
-                        "fields": {
-                            "name": t_list["list"]["long name"],
-                            "slug": t_list["list"]["slug"],
-                            "description": t_list["list"]["description"],
-                            "javascript": "",
-                            "warning_message": "Out of tolerance",
-                        },
-                    }
-                )
-
-                # append for the sublist
-                sublist.append(
-                    {
-                        "model": "qa.sublist",
-                        "fields": {
-                            "parent": [test_list["slug"]],
-                            "child": [t_list["list"]["slug"]],
-                            "outline": True,
-                            "order": t_list["order"],
-                        },
-                    }
-                )
-
-                # Check sublists for tests that haven't not been added yet and add them
-                for test in t_list["list"]["tests"]:
-                    if test["name"] not in final_test_names:
-                        self.process_test(
-                            tests,
-                            test,
-                            t_list["list"]["slug"],
-                            final_test_names,
-                            dependencies,
-                            final_tests,
-                            memberships,
-                        )
-
-            # Combine to make correct format
-            tests_lists.append(
-                {
-                    "key": [test_list["slug"]],
-                    "object": {
-                        "model": "qa.testlist",
-                        "fields": {
-                            "name": test_list["long name"],
-                            "slug": test_list["slug"],
-                            "description": test_list["description"],
-                            "javascript": "",
-                            "warning_message": "Out of tolerance",
-                        },
-                    },
-                    "dependencies": dependencies
-                    + final_tests
-                    + memberships
-                    + testlist_extra
-                    + sublist,
-                }
+            self.process_testlist(
+                test_list["slug"],
+                test_list["sublists"],
+                final_test_names,
+                testlist_extra,
+                sublist,
+                dependencies,
+                final_tests,
+                memberships,
+                tests,
             )
 
-        return tests_lists
+            # Check cycle lists array
+            for cycle_index, cycle_list in enumerate(test_list["cycle"]):
+                cycle.append(
+                    {
+                        "model": "qa.testlistcyclemembership",
+                        "fields": {
+                            "test_list": [cycle_list["name"]["slug"]],
+                            "cycle": [test_list["slug"]],
+                            "order": cycle_index,
+                        },
+                    }
+                )
+
+                self.process_testlist(
+                    cycle_list["name"]["slug"],
+                    cycle_list["name"]["sublists"],
+                    final_test_names,
+                    testlist_extra,
+                    sublist,
+                    dependencies,
+                    final_tests,
+                    memberships,
+                    tests,
+                )
+
+            if len(test_list["sublists"]) == 0:
+                # Combine to make correct format
+                test_list_cycles.append(
+                    {
+                        "key": [test_list["slug"]],
+                        "object": {
+                            "model": "qa.testlistcycle",
+                            "fields": {
+                                "name": test_list["long name"],
+                                "slug": test_list["slug"],
+                                "description": test_list["description"],
+                                "javascript": "",
+                                "drop_down_label": "Choose Month",
+                                "day_option_text": "day",
+                            },
+                        },
+                        "dependencies": dependencies
+                        + final_tests
+                        + memberships
+                        + testlist_extra
+                        + sublist
+                        + cycle,
+                    }
+                )
+            else:
+                # Combine to make correct format
+                tests_lists.append(
+                    {
+                        "key": [test_list["slug"]],
+                        "object": {
+                            "model": "qa.testlist",
+                            "fields": {
+                                "name": test_list["long name"],
+                                "slug": test_list["slug"],
+                                "description": test_list["description"],
+                                "javascript": "",
+                                "warning_message": "Out of tolerance",
+                            },
+                        },
+                        "dependencies": dependencies
+                        + final_tests
+                        + memberships
+                        + testlist_extra
+                        + sublist,
+                    }
+                )
+
+        return tests_lists, test_list_cycles
 
     def make_test_tpk(self, file_name: str) -> dict:
         """
@@ -532,7 +650,10 @@ class BCCATestpack:
 
         temp_tpk = self.load_tpk_template("calculation")
         temp_tpk["objects"]["tests"] = tests
-        temp_tpk["objects"]["testlists"] = self.make_test_list(tests)
+        test_lists, test_list_cycles = self.make_test_list(tests)
+        temp_tpk["objects"]["testlists"] = test_lists
+        temp_tpk["objects"]["testlistcycles"] = test_list_cycles
+
         # Adjust Meta
         temp_tpk["meta"]["version"] = "3.1.1"
         temp_tpk["meta"]["id"] = str(uuid.uuid4())

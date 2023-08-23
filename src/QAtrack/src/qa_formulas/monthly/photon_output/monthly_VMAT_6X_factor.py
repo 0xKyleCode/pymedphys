@@ -1,0 +1,14 @@
+import numpy as np
+
+OC_6X_AVG = 0
+try:
+    OC_6X_AVG = np.mean([OC_6X_10x10_1, OC_6X_10x10_2, OC_6X_10x10_3])
+except:
+    try:
+        OC_6X_AVG = np.mean([OC_6X_10x10_1, OC_6X_10x10_2])
+    except:
+        OC_6X_AVG = OC_6X_10x10_1
+
+vmat_avg = np.mean([VMAT_factor_ccw, VMAT_factor_cw])
+
+VMAT_6X_factor = vmat_avg / OC_6X_AVG

@@ -28,6 +28,8 @@ QA_EDW = [
     ("EDW60OUT_15X", "F57"),
 ]
 
+QA_EDW_RESULTS = [("EDWF_6X", "H55"), ("EDWF_10X", "H56"), ("EDWF_15X", "H57")]
+
 QA_MLC = [
     ("dmlc_5mm_1", "F62"),
     ("dmlc_5mm_2", "G62"),
@@ -37,30 +39,53 @@ QA_MLC = [
     ("dmlc_Hold_2", "G64"),
     ("dmlc_Prostate_6X_1", "F65"),
     ("dmlc_Prostate_6X_2", "G65"),
-    ("dmlc_H&N_1", "F66"),
-    ("dmlc_H&N_2", "G66"),
+    ("dmlc_HN_1", "F66"),
+    ("dmlc_HN_2", "G66"),
+]
+
+QA_MLC_RESULTS = [
+    ("dmlc_5mm_ratio", "I62"),
+    ("dmlc_5mm_Int_ratio", "I63"),
+    ("dmlc_Hold_ratio", "I64"),
+    ("dmlc_Prostate_6X_ratio", "I65"),
+    ("dmlc_HN_ratio", "I66"),
 ]
 
 QA_VMAT = [("VMAT_factor_ccw", "F72"), ("VMAT_factor_cw", "G72")]
 
+QA_VMAT_RESULT = [("VMAT_6X_factor", "I72")]
+
 QA_dMLC_SEQUENCE = [("dmlc_error", "E77")]
 
-QA_5PHOTON = [
+QA_TMR_PHOTON = [
     ("TMR_6X_1", "F85"),
     ("TMR_6X_2", "G85"),
     ("TMR_10X_1", "F86"),
     ("TMR_10X_2", "G86"),
     ("TMR_10fff_1", "F87"),
     ("TMR_10fff_2", "G87"),
-    ("TMR_15_1", "F88"),
-    ("TMR_15_2", "G88"),
+    ("TMR_15X_1", "F88"),
+    ("TMR_15X_2", "G88"),
+]
+
+QA_TMR_PHOTON_RESULT = [
+    ("TMR_6X", "I85"),
+    ("TMR_10X", "I86"),
+    ("TMR_10fff", "I87"),
+    ("TMR_15X", "I88"),
 ]
 
 QA_CBCT = [
-    ("dose_index_CBCT-HEAD", "G98"),
-    ("dose_index_CBCT-SPOTLIGHT", "G99"),
+    ("dose_index_HEAD", "G98"),
+    ("dose_index_SPOTLIGHT", "G99"),
     ("dose_index_THORAX", "G100"),
     ("dose_index_PELVIS", "G101"),
+]
+QA_CBCT_RESULT = [
+    ("dose_index_HEAD_corr", "H98"),
+    ("dose_index_SPOTLIGHT_corr", "H99"),
+    ("dose_index_THORAX_corr", "H100"),
+    ("dose_index_PELVIS_corr", "H101"),
 ]
 
 
@@ -82,38 +107,12 @@ QA_ELECTRON = [
     ("OC_20E_3", "G120"),
 ]
 
-
-ALL_PHOTON_PLAN = (
-    QA_OUTPUT
-    + QA_EDW
-    + QA_MLC
-    + QA_VMAT
-    + QA_dMLC_SEQUENCE
-    + QA_5PHOTON
-    + QA_CBCT
-    + QA_ELECTRON
-)
-
-PLAN_DICT = {
-    "All Photon": ALL_PHOTON_PLAN,
-    "Photon Output (1Photon_OP)": QA_OUTPUT,
-    "EDW Factor (1Photon_OP)": QA_EDW,
-    "MLC (2dMLC_OP)": QA_MLC,
-    "VMAT (3VMAT_H&N)": QA_VMAT,
-    "dMLC Invalid Sequence (4dMLC_Errror)": QA_dMLC_SEQUENCE,
-    "Photon Dmax (5Photon_Dmax)": QA_5PHOTON,
-    "CBCT (12CBCT)": QA_CBCT,
-    "Electron Output (6Electron_OP)": QA_ELECTRON,
-}
-
-PLAN_LIST = [
-    "All Photon",
-    "Photon Output (1Photon_OP)",
-    "MLC (2dMLC_OP)",
-    "VMAT (3VMAT_H&N)",
-    "Photon Dmax (5Photon_Dmax)",
-    "CBCT (12CBCT)",
-    "Electron (6Electron_OP)",
+QA_ELECTRON_DOSE = [
+    ("OC_6E_DOSE", "I116"),
+    ("OC_9E_DOSE", "I117"),
+    ("OC_12E_DOSE", "I118"),
+    ("OC_16E_DOSE", "I119"),
+    ("OC_20E_DOSE", "I120"),
 ]
 
 

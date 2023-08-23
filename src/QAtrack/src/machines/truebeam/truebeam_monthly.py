@@ -1,6 +1,5 @@
 import os
 import re
-import datetime
 from constants.machines import BCCALinac
 from machines.machine_template import BCCABaseQA
 from qa_tpk.testpack import BCCATestpack

@@ -3,8 +3,8 @@ MONTHLY_EDW_6X = {
     "slug": "monthly-edw-6x",
     "description": "Monthly EDW for 6X",
     "tests": [
-        {"name": "EDW60IN_6X"},
-        {"name": "EDW60OUT_6X"},
+        {"name": "monthly_EDW60IN_6X"},
+        {"name": "monthly_EDW60OUT_6X"},
     ],
     "test_lists": [],
     "sublists": [],
@@ -16,8 +16,8 @@ MONTHLY_EDW_10X = {
     "slug": "monthly-edw-10x",
     "description": "Monthly EDW for 10X",
     "tests": [
-        {"name": "EDW60IN_10X"},
-        {"name": "EDW60OUT_10X"},
+        {"name": "monthly_EDW60IN_10X"},
+        {"name": "monthly_EDW60OUT_10X"},
     ],
     "test_lists": [],
     "sublists": [],
@@ -29,8 +29,8 @@ MONTHLY_EDW_15X = {
     "slug": "monthly-edw-15x",
     "description": "Monthly EDW for 15X",
     "tests": [
-        {"name": "EDW60IN_15X"},
-        {"name": "EDW60OUT_15X"},
+        {"name": "monthly_EDW60IN_15X"},
+        {"name": "monthly_EDW60OUT_15X"},
     ],
     "test_lists": [],
     "sublists": [],
@@ -43,9 +43,9 @@ MONTHLY_EDW = {
     "slug": "monthly-edw",
     "description": "Monthly EDW",
     "tests": [
-        {"name": "EDWF_6X"},
-        {"name": "EDWF_10X"},
-        {"name": "EDWF_15X"},
+        {"name": "monthly_EDWF_6X"},
+        {"name": "monthly_EDWF_10X"},
+        {"name": "monthly_EDWF_15X"},
     ],
     "test_lists": [
         {"name": MONTHLY_EDW_6X, "order": 0},

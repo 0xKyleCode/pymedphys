@@ -1,4 +1,4 @@
-from constants.monthly.test_lists.electron_output.general import (
+from constants.testlists.general_electron import (
     MONTHLY_CTP_ELECTRON,
     MONTHLY_ND_ELECTRON,
 )

@@ -147,6 +147,13 @@ class BCCATestpack:
         with open(outfile, "w") as f:
             json.dump(testpack_dict, f, indent=4)
 
+    def find_file_recursive(self, directory, target_filename):
+        for root, dirs, files in os.walk(directory):
+            if target_filename in files:
+                return os.path.join(root, target_filename)
+
+        return None
+
     def make_calculation_tpk(self, df: pd.DataFrame) -> list[dict]:
         """
         Makes a QATrack+ test list for calulations
@@ -168,17 +175,19 @@ class BCCATestpack:
             current_test["key"][0] = row["short"]
 
             # Based off short name, we're gonna read the in contents of the python file and use that as calculation prodecure
+
+            # Get location
+            directory_path = os.path.join(
+                os.getcwd(),
+                "src",
+                "QAtrack",
+                "src",
+                "qa_formulas",
+            )
+            target_filename = f"{row['short']}.py"
+            python_file_path = self.find_file_recursive(directory_path, target_filename)
             # Read the content of the Python file
-            with open(
-                os.path.join(
-                    os.getcwd(),
-                    "src",
-                    "QAtrack",
-                    "src",
-                    "qa_formulas",
-                    f"{row['short']}.py",
-                )
-            ) as python_file:
+            with open(python_file_path) as python_file:
                 python_code = python_file.read()
 
             # Set object params

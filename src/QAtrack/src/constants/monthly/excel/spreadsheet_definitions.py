@@ -1,118 +1,122 @@
 QA_OUTPUT = [
-    ("OC_6X_10x10_1", "E47"),
-    ("OC_6X_10x10_2", "F47"),
-    ("OC_6X_10x10_3", "G47"),
-    ("OC_10X_10x10_1", "E48"),
-    ("OC_10X_10x10_2", "F48"),
-    ("OC_10X_10x10_3", "G48"),
-    ("OC_10Xfff_10x10_1", "E49"),
-    ("OC_10Xfff_10x10_2", "F49"),
-    ("OC_10Xfff_10x10_3", "G49"),
-    ("OC_15X_10x10_1", "E50"),
-    ("OC_15X_10x10_2", "F50"),
-    ("OC_15X_10x10_3", "G50"),
+    ("monthly_OC_6X_10x10_1", "E47"),
+    ("monthly_OC_6X_10x10_2", "F47"),
+    ("monthly_OC_6X_10x10_3", "G47"),
+    ("monthly_OC_10X_10x10_1", "E48"),
+    ("monthly_OC_10X_10x10_2", "F48"),
+    ("monthly_OC_10X_10x10_3", "G48"),
+    ("monthly_OC_10Xfff_10x10_1", "E49"),
+    ("monthly_OC_10Xfff_10x10_2", "F49"),
+    ("monthly_OC_10Xfff_10x10_3", "G49"),
+    ("monthly_OC_15X_10x10_1", "E50"),
+    ("monthly_OC_15X_10x10_2", "F50"),
+    ("monthly_OC_15X_10x10_3", "G50"),
 ]
 QA_OUTPUT_RESULTS = [
-    ("OC_6X_10x10_DOSE", "I47"),
-    ("OC_10X_10x10_DOSE", "I48"),
-    ("OC_10Xfff_10x10_DOSE", "I49"),
-    ("OC_15X_10x10_DOSE", "I50"),
+    ("monthly_OC_6X_10x10_DOSE", "I47"),
+    ("monthly_OC_10X_10x10_DOSE", "I48"),
+    ("monthly_OC_10Xfff_10x10_DOSE", "I49"),
+    ("monthly_OC_15X_10x10_DOSE", "I50"),
 ]
 
 QA_EDW = [
-    ("EDW60IN_6X", "E55"),
-    ("EDW60OUT_6X", "F55"),
-    ("EDW60IN_10X", "E56"),
-    ("EDW60OUT_10X", "F56"),
-    ("EDW60IN_15X", "E57"),
-    ("EDW60OUT_15X", "F57"),
+    ("monthly_EDW60IN_6X", "E55"),
+    ("monthly_EDW60OUT_6X", "F55"),
+    ("monthly_EDW60IN_10X", "E56"),
+    ("monthly_EDW60OUT_10X", "F56"),
+    ("monthly_EDW60IN_15X", "E57"),
+    ("monthly_EDW60OUT_15X", "F57"),
 ]
 
-QA_EDW_RESULTS = [("EDWF_6X", "H55"), ("EDWF_10X", "H56"), ("EDWF_15X", "H57")]
+QA_EDW_RESULTS = [
+    ("monthly_EDWF_6X", "H55"),
+    ("monthly_EDWF_10X", "H56"),
+    ("monthly_EDWF_15X", "H57"),
+]
 
 QA_MLC = [
-    ("dmlc_5mm_1", "F62"),
-    ("dmlc_5mm_2", "G62"),
-    ("dmlc_5mm_Int_1", "F63"),
-    ("dmlc_5mm_Int_2", "G63"),
-    ("dmlc_Hold_1", "F64"),
-    ("dmlc_Hold_2", "G64"),
-    ("dmlc_Prostate_6X_1", "F65"),
-    ("dmlc_Prostate_6X_2", "G65"),
-    ("dmlc_HN_1", "F66"),
-    ("dmlc_HN_2", "G66"),
+    ("monthly_dmlc_5mm_1", "F62"),
+    ("monthly_dmlc_5mm_2", "G62"),
+    ("monthly_dmlc_5mm_Int_1", "F63"),
+    ("monthly_dmlc_5mm_Int_2", "G63"),
+    ("monthly_dmlc_Hold_1", "F64"),
+    ("monthly_dmlc_Hold_2", "G64"),
+    ("monthly_dmlc_Prostate_6X_1", "F65"),
+    ("monthly_dmlc_Prostate_6X_2", "G65"),
+    ("monthly_dmlc_HN_1", "F66"),
+    ("monthly_dmlc_HN_2", "G66"),
 ]
 
 QA_MLC_RESULTS = [
-    ("dmlc_5mm_ratio", "I62"),
-    ("dmlc_5mm_Int_ratio", "I63"),
-    ("dmlc_Hold_ratio", "I64"),
-    ("dmlc_Prostate_6X_ratio", "I65"),
-    ("dmlc_HN_ratio", "I66"),
+    ("monthly_dmlc_5mm_ratio", "I62"),
+    ("monthly_dmlc_5mm_Int_ratio", "I63"),
+    ("monthly_dmlc_Hold_ratio", "I64"),
+    ("monthly_dmlc_Prostate_6X_ratio", "I65"),
+    ("monthly_dmlc_HN_ratio", "I66"),
 ]
 
-QA_VMAT = [("VMAT_factor_ccw", "F72"), ("VMAT_factor_cw", "G72")]
+QA_VMAT = [("monthly_VMAT_factor_ccw", "F72"), ("monthly_VMAT_factor_cw", "G72")]
 
-QA_VMAT_RESULT = [("VMAT_6X_factor", "I72")]
+QA_VMAT_RESULT = [("monthly_VMAT_6X_factor", "I72")]
 
-QA_dMLC_SEQUENCE = [("dmlc_error", "E77")]
+QA_dMLC_SEQUENCE = [("monthly_dmlc_error", "E77")]
 
 QA_TMR_PHOTON = [
-    ("TMR_6X_1", "F85"),
-    ("TMR_6X_2", "G85"),
-    ("TMR_10X_1", "F86"),
-    ("TMR_10X_2", "G86"),
-    ("TMR_10fff_1", "F87"),
-    ("TMR_10fff_2", "G87"),
-    ("TMR_15X_1", "F88"),
-    ("TMR_15X_2", "G88"),
+    ("monthly_TMR_6X_1", "F85"),
+    ("monthly_TMR_6X_2", "G85"),
+    ("monthly_TMR_10X_1", "F86"),
+    ("monthly_TMR_10X_2", "G86"),
+    ("monthly_TMR_10fff_1", "F87"),
+    ("monthly_TMR_10fff_2", "G87"),
+    ("monthly_TMR_15X_1", "F88"),
+    ("monthly_TMR_15X_2", "G88"),
 ]
 
 QA_TMR_PHOTON_RESULT = [
-    ("TMR_6X", "I85"),
-    ("TMR_10X", "I86"),
-    ("TMR_10fff", "I87"),
-    ("TMR_15X", "I88"),
+    ("monthly_TMR_6X", "I85"),
+    ("monthly_TMR_10X", "I86"),
+    ("monthly_TMR_10fff", "I87"),
+    ("monthly_TMR_15X", "I88"),
 ]
 
 QA_CBCT = [
-    ("dose_index_HEAD", "G98"),
-    ("dose_index_SPOTLIGHT", "G99"),
-    ("dose_index_THORAX", "G100"),
-    ("dose_index_PELVIS", "G101"),
+    ("monthly_dose_index_HEAD", "G98"),
+    ("monthly_dose_index_SPOTLIGHT", "G99"),
+    ("monthly_dose_index_THORAX", "G100"),
+    ("monthly_dose_index_PELVIS", "G101"),
 ]
 QA_CBCT_RESULT = [
-    ("dose_index_HEAD_corr", "H98"),
-    ("dose_index_SPOTLIGHT_corr", "H99"),
-    ("dose_index_THORAX_corr", "H100"),
-    ("dose_index_PELVIS_corr", "H101"),
+    ("monthly_dose_index_HEAD_corr", "H98"),
+    ("monthly_dose_index_SPOTLIGHT_corr", "H99"),
+    ("monthly_dose_index_THORAX_corr", "H100"),
+    ("monthly_dose_index_PELVIS_corr", "H101"),
 ]
 
 
 QA_ELECTRON = [
-    ("OC_6E_1", "E116"),
-    ("OC_6E_2", "F116"),
-    ("OC_6E_3", "G116"),
-    ("OC_9E_1", "E117"),
-    ("OC_9E_2", "F117"),
-    ("OC_9E_3", "G117"),
-    ("OC_12E_1", "E118"),
-    ("OC_12E_2", "F118"),
-    ("OC_12E_3", "G118"),
-    ("OC_16E_1", "E119"),
-    ("OC_16E_2", "F119"),
-    ("OC_16E_3", "G119"),
-    ("OC_20E_1", "E120"),
-    ("OC_20E_2", "F120"),
-    ("OC_20E_3", "G120"),
+    ("monthly_OC_6E_1", "E116"),
+    ("monthly_OC_6E_2", "F116"),
+    ("monthly_OC_6E_3", "G116"),
+    ("monthly_OC_9E_1", "E117"),
+    ("monthly_OC_9E_2", "F117"),
+    ("monthly_OC_9E_3", "G117"),
+    ("monthly_OC_12E_1", "E118"),
+    ("monthly_OC_12E_2", "F118"),
+    ("monthly_OC_12E_3", "G118"),
+    ("monthly_OC_16E_1", "E119"),
+    ("monthly_OC_16E_2", "F119"),
+    ("monthly_OC_16E_3", "G119"),
+    ("monthly_OC_20E_1", "E120"),
+    ("monthly_OC_20E_2", "F120"),
+    ("monthly_OC_20E_3", "G120"),
 ]
 
 QA_ELECTRON_DOSE = [
-    ("OC_6E_DOSE", "I116"),
-    ("OC_9E_DOSE", "I117"),
-    ("OC_12E_DOSE", "I118"),
-    ("OC_16E_DOSE", "I119"),
-    ("OC_20E_DOSE", "I120"),
+    ("monthly_OC_6E_DOSE", "I116"),
+    ("monthly_OC_9E_DOSE", "I117"),
+    ("monthly_OC_12E_DOSE", "I118"),
+    ("monthly_OC_16E_DOSE", "I119"),
+    ("monthly_OC_20E_DOSE", "I120"),
 ]
 
 

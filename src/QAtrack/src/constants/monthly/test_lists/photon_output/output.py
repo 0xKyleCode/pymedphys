@@ -3,7 +3,7 @@ from constants.monthly.test_lists.photon_output.dmlc import (
     MONTHLY_INVALID_DMLC,
 )
 from constants.monthly.test_lists.photon_output.edw import MONTHLY_EDW
-from constants.monthly.test_lists.photon_output.general import (
+from constants.testlists.general_photon import (
     MONTHLY_CTP_PHOTON,
     MONTHLY_ND_PHOTON,
 )

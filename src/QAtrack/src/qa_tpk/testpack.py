@@ -7,7 +7,6 @@ from openpyxl import load_workbook
 from collections import defaultdict
 from datetime import datetime, timezone
 import copy
-from test_lists.test_list_definitions import ALL_TEST_LISTS
 
 TPK_CALC_TEMPLATE = os.path.join(
     os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_calc.tpk"
@@ -516,7 +515,9 @@ class BCCATestpack:
             )
         ]
 
-    def make_test_list(self, tests: list) -> (list[dict], list[dict]):
+    def make_test_list(
+        self, tests: list, ALL_TEST_LISTS: list[dict]
+    ) -> (list[dict], list[dict]):
         """
         Makes a QATrack+ test list.
 
@@ -636,7 +637,7 @@ class BCCATestpack:
 
         return tests_lists, test_list_cycles
 
-    def make_test_tpk(self, file_name: str) -> dict:
+    def make_test_tpk(self, file_name: str, ALL_TEST_LISTS: list[dict]) -> dict:
         """
         Makes a QATrack+ test list.
 
@@ -663,7 +664,7 @@ class BCCATestpack:
 
         temp_tpk = self.load_tpk_template("calculation")
         temp_tpk["objects"]["tests"] = tests
-        test_lists, test_list_cycles = self.make_test_list(tests)
+        test_lists, test_list_cycles = self.make_test_list(tests, ALL_TEST_LISTS)
         temp_tpk["objects"]["testlists"] = test_lists
         temp_tpk["objects"]["testlistcycles"] = test_list_cycles
 

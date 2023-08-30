@@ -7,7 +7,7 @@ from openpyxl import load_workbook
 from collections import defaultdict
 from datetime import datetime, timezone
 import copy
-from constants.test_list_definitions import ALL_TEST_LISTS
+from test_lists.test_list_definitions import ALL_TEST_LISTS
 
 TPK_CALC_TEMPLATE = os.path.join(
     os.getcwd(), "src", "QAtrack", "data", "constant_tpk", "sample_calc.tpk"
@@ -187,6 +187,10 @@ class BCCATestpack:
             target_filename = f"{row['short']}.py"
             python_file_path = self.find_file_recursive(directory_path, target_filename)
             # Read the content of the Python file
+            if python_file_path is None:
+                raise FileNotFoundError(
+                    f"File {target_filename} not found in {directory_path}"
+                )
             with open(python_file_path) as python_file:
                 python_code = python_file.read()
 
@@ -583,7 +587,7 @@ class BCCATestpack:
                     tests,
                 )
 
-            if len(test_list["sublists"]) == 0:
+            if len(test_list["cycle"]) > 0:
                 # Combine to make correct format
                 test_list_cycles.append(
                     {

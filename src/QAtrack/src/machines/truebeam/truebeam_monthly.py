@@ -1,6 +1,6 @@
 import os
 import re
-from constants.machines import BCCALinac
+from test_lists.machines import BCCALinac
 from machines.machine_template import BCCABaseQA
 from qa_tpk.testpack import BCCATestpack
 import xlwings as xw

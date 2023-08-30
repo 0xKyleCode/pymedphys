@@ -20,5 +20,6 @@
     "python.analysis.typeCheckingMode": "off",
     "python.analysis.extraPaths": [
         "./src/QAtrack/src"
-    ]
+    ],
+    "python.analysis.autoImportCompletions": true,
 }

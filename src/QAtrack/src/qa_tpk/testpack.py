@@ -35,66 +35,6 @@ TPK_DEPEN_TEMPLATE = {
 
 
 class BCCATestpack:
-    def read_excel_sheet(self, type: str, file_name: str) -> pd.DataFrame:
-        """
-        Reads the excel sheet and returns a dataframe of main.
-
-        Args:
-            file_name (str): _description_
-
-        Returns:
-            pd.DataFrame: _description_
-        """
-        # Load your workbook
-        workbook = load_workbook(filename=file_name)
-        # Get your sheets
-        sheet1 = workbook[f"QATrack_{type}"]
-        sheet2 = workbook[type]
-        sheet3 = workbook["QATrack_Definitions"]
-
-        # Initialize an empty dictionary to store names, corresponding values and cell locations
-        data = defaultdict(dict)
-
-        # Iterate through all cells in sheet1
-        for row in sheet1.iter_rows():
-            for cell in row:
-                # Check if cell is not empty and contains a string
-                if (
-                    cell.value
-                    and isinstance(cell.value, str)
-                    and cell.value.startswith("#!")
-                ):
-                    # Get corresponding value from same cell in sheet2
-                    value = sheet2[cell.coordinate].value
-                    # Store name and value in the dictionary
-                    data[cell.coordinate]["name"] = cell.value[2:]
-                    data[cell.coordinate]["value"] = value
-
-        # Now find matching short_name rows in Sheet3 and gather the row data
-        for row in sheet3.iter_rows():
-            for cell in row:
-                # If the cell is in the 'short_name' column and its value is a name we've gathered,
-                # get the entire row data
-
-                if cell.column_letter == "B" and any(
-                    cell.value == info["name"] for info in data.values()
-                ):
-                    for cell_in_row in row:
-                        # Store the data using the column header as key
-                        data[
-                            next(
-                                key
-                                for key, value in data.items()
-                                if value["name"] == cell.value
-                            )
-                        ][
-                            sheet3[cell_in_row.column_letter + "1"].value
-                        ] = cell_in_row.value
-
-        # Turn data into a dataframe
-        df = pd.DataFrame(data.values())
-        return df
-
     def load_tpk_template(self, type: str) -> dict:
         """
         Loads the TPK file.
@@ -637,7 +577,9 @@ class BCCATestpack:
 
         return tests_lists, test_list_cycles
 
-    def make_test_tpk(self, file_name: str, ALL_TEST_LISTS: list[dict]) -> dict:
+    def make_test_tpk(
+        self, definitions: pd.DataFrame, ALL_TEST_LISTS: list[dict]
+    ) -> dict:
         """
         Makes a QATrack+ test list.
 
@@ -648,12 +590,7 @@ class BCCATestpack:
             dict: The test list in dictionary format.
         """
 
-        df = pd.concat(
-            [
-                self.read_excel_sheet("Main", file_name),
-                self.read_excel_sheet("Data", file_name),
-            ]
-        )
+        df = definitions
 
         calculations_tpk = self.make_calculation_tpk(df)
         constants_tpk = self.make_constant_tpk(df)

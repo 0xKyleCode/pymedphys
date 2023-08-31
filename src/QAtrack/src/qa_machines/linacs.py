@@ -20,6 +20,7 @@ class BCCALinac:
             "long_name": "VIFIR_TB1",
             "model": "TrueBeam",
             "hd": False,
+            "electron": True,
             "id": 1,
         },
         "arbutus": {
@@ -27,6 +28,7 @@ class BCCALinac:
             "long_name": "VIARBUTUS_TB2",
             "model": "TrueBeam",
             "hd": False,
+            "electron": True,
             "id": 2,
         },
         "birch": {
@@ -34,6 +36,7 @@ class BCCALinac:
             "long_name": "VIBIRCH_TB3",
             "model": "TrueBeam",
             "hd": False,
+            "electron": True,
             "id": 3,
         },
         "cedar": {
@@ -41,6 +44,7 @@ class BCCALinac:
             "long_name": "VICEDAR_TB4",
             "model": "TrueBeam",
             "hd": False,
+            "electron": False,
             "id": 4,
         },
         "spruce": {
@@ -48,6 +52,7 @@ class BCCALinac:
             "long_name": "VISPRUCE_TB5",
             "model": "TrueBeam",
             "hd": False,
+            "electron": False,
             "id": 5,
         },
         "oak": {
@@ -55,6 +60,7 @@ class BCCALinac:
             "long_name": "VIOAK_TB6",
             "model": "TrueBeam",
             "hd": True,
+            "electron": False,
             "id": 6,
         },
     }

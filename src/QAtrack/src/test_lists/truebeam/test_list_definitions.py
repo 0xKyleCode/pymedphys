@@ -7,7 +7,9 @@ from test_lists.truebeam.monthly.lists import (
     QUARTERLY_W_ELECTRON,
 )
 
-ALL_TEST_LISTS = [
+from enum import Enum
+
+MONTHLY_TEST_LISTS = [
     MONTHLY_CYCLE_W_ELECTRON,
     MONTHLY_CYCLE_NO_ELECTRON,
     MONTHLY_W_ELECTRON,
@@ -15,3 +17,8 @@ ALL_TEST_LISTS = [
     QUARTERLY_NO_ELECTRON,
     QUARTERLY_W_ELECTRON,
 ]
+
+
+class Monthly(Enum):
+    ELECTRON = 0
+    NO_ELECTRON = 1

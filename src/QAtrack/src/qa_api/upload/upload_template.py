@@ -2,22 +2,21 @@ from abc import ABC, abstractmethod
 from collections import defaultdict
 import os
 import pandas as pd
-import xlwings as xw
+from openpyxl import load_workbook
 
 
 class QATrackUpload(ABC):
-    def __init__(self, file_name: str, file_path: str, file_template: str):
+    def __init__(self, file_name: str, file_template: str):
         """
 
         Initialize QATrackUpload class
 
         Args:
             file_name (str): Name of the file
-            file_path (str): Source root/directory of files (can find it if in deeper directory)
+            file_root (str): Source root/directory of files (can find it if in deeper directory)
             file_template (str): Template of the file (for data grabbing)
         """
         self.file_name = file_name
-        self.file_path = file_path
         self.file_template = file_template
 
     @abstractmethod
@@ -39,13 +38,29 @@ class QATrackUpload(ABC):
         pass
 
     def read_excel_sheets(
-        self, type: str, template_book: xw.Book, machine_book: xw.Book
+        self, type: str, template_file_name: str, machine_file_name: str
     ) -> pd.DataFrame:
-        sheet1 = template_book.sheets[f"QATrack_{type}"]
-        sheet2 = machine_book.sheets[type]
+        """
+        Reads the excel sheet and returns a dataframe of main.
+
+        Args:
+            file_name (str): _description_
+
+        Returns:
+            pd.DataFrame: _description_
+        """
+        # Load your workbook
+        template_workbook = load_workbook(filename=template_file_name)
+        machine_workbook = load_workbook(filename=machine_file_name)
+        # Get your sheets
+        sheet1 = template_workbook[f"QATrack_{type}"]
+        sheet2 = machine_workbook[type]
+
+        # Initialize an empty dictionary to store names, corresponding values and cell locations
         data = defaultdict(dict)
+
         # Iterate through all cells in sheet1
-        for row in sheet1.range("A1").expand("table").rows:
+        for row in sheet1.iter_rows():
             for cell in row:
                 # Check if cell is not empty and contains a string
                 if (
@@ -53,11 +68,12 @@ class QATrackUpload(ABC):
                     and isinstance(cell.value, str)
                     and cell.value.startswith("#!")
                 ):
-                    # Get corresponding value from the same cell in sheet2
-                    value = sheet2.range(cell.address).value
+                    # Get corresponding value from same cell in sheet2
+                    value = sheet2[cell.coordinate].value
                     # Store name and value in the dictionary
-                    data[cell.address]["name"] = cell.value[2:]
-                    data[cell.address]["value"] = value
+                    data[cell.coordinate]["name"] = cell.value[2:]
+                    data[cell.coordinate]["value"] = value
+                    data[cell.coordinate]["location"] = cell.coordinate
 
         # Turn data into a dataframe
         df = pd.DataFrame(data.values())

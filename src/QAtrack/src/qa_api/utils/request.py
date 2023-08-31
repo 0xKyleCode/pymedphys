@@ -50,4 +50,4 @@ def post(url: str, data: dict = None) -> dict:
         dict: _description_
     """
     header = setup_header()
-    return requests.get(root + url, json=data, headers=header).json()
+    return requests.post(root + url, json=data, headers=header)

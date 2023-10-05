@@ -2,6 +2,7 @@ import os
 import datetime
 
 import pandas as pd
+from pytz import utc
 import requests
 from qa_machines.truebeam.monthly import BCCAMonthlyTruebeamQA
 from qa_api.upload.upload_template import QATrackUpload
@@ -124,7 +125,7 @@ class MonthlyTruebeamUpload(QATrackUpload):
             "tests": self._produce_tests(data, tests, which_cycle),
             "attachments": [],
         }
-
+        return utc_data
         # Lets try it out!
         resp = post("/qa/testlistinstances/", data=utc_data)
         if resp.status_code == requests.codes.CREATED:  # http code 201

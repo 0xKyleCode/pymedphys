@@ -13,10 +13,13 @@
     "[csharp]": {
         "editor.formatOnSave": true
     },
-    "python.formatting.provider": "none",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "files.exclude": {
         "**/.git": false
     },
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.extraPaths": [
+        "./src/QAtrack/src"
+    ],
+    "python.analysis.autoImportCompletions": true,
 }

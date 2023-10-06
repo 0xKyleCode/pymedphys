@@ -1,0 +1,1 @@
+monthly_cbct_8_6_cnr = monthly_cbct_8_6_delrin_ldpe / monthly_cbct_8_6_noise

@@ -1,0 +1,1 @@
+monthly_cbct_8_5_noise_delta = monthly_cbct_8_5_noise_max - monthly_cbct_8_5_noise_min

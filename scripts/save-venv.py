@@ -7,7 +7,7 @@ def save_environment_to_requirements():
     current_dir: str = os.path.dirname(os.path.abspath(__file__))
 
     # Path to requirements.txt file
-    requirements_file: str = os.path.join(current_dir, "..", "dep", "requirements.txt")
+    requirements_file: str = os.path.join(current_dir, "..", "requirements.txt")
 
     # Save the current environment to requirements.txt
     try:
